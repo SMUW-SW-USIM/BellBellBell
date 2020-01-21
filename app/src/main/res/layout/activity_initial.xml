@@ -7,20 +7,36 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="150dp"
-        android:src="@drawable/mainimg"/>
-    <Button
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginTop="100dp"
-        android:text="로그인"
-        android:textSize="20dp" />
+        android:src="@drawable/mainimg"/>
+    <EditText
+        android:id="@+id/loginId"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:hint="id"
+        android:textSize="25dp"/>
+    <EditText
+        android:id="@+id/loginPw"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="password"
+        android:textSize="25dp"/>
     <Button
-        android:layout_width="110dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="회원가입"
+        android:text="로그인"
         android:textSize="20dp" />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:background="#ffffff"
+        android:text="회원가입"
+        android:textSize="15dp" />
 </LinearLayout>
