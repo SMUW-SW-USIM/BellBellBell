@@ -14,10 +14,14 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager.widget.ViewPager;
 
+import com.example.usim.ui.home.RealTimeFragment;
+import com.example.usim.ui.home.VisitorListFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        // toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+        TestPagerAdapter mTestPagerAdapter = new TestPagerAdapter(getSupportFragmentManager());
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        TabLayout mTab = (TabLayout) findViewById(R.id.tabs);
+        mViewPager.setAdapter(mTestPagerAdapter);
+        mTab.setupWithViewPager(mViewPager);
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
                 R.id.nav_tools, R.id.nav_share, R.id.nav_send)
@@ -66,16 +76,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public class TestPagerAdapter extends FragmentPagerAdapter {
+        private int PAGE_NUMBER = 3;
         public TestPagerAdapter(FragmentManager fm){
             super(fm);
         }
         @Override
         public Fragment getItem(int position){
-            return null;
+            switch(position){
+                case 0:
+                    return RealTimeFragment.newInstance();
+                case 1:
+                    return RealTimeFragment.newInstance();
+                case 2:
+                    return VisitorListFragment.newInstance();
+                default:
+                    return null;
+            }
         }
         @Override
         public int getCount(){
-            return 0;
+            return PAGE_NUMBER;
+        }
+        public CharSequence getPageTitle(int position){
+            switch(position){
+                case 0:
+                    return "HOME";
+                case 1:
+                    return "실시간";
+                case 2:
+                    return "방문자";
+                default:
+                    return null;
+            }
         }
     }
 }
