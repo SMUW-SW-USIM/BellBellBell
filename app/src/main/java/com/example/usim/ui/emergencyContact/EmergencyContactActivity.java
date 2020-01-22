@@ -42,8 +42,9 @@ public class EmergencyContactActivity extends AppCompatActivity {
             name = cursor.getString(0);
             number = cursor.getString(1);
             Intent intent = new Intent(EmergencyContactActivity.this, EmergencyContactPopupActivity.class);
+            intent.putExtra("name",name);
+            intent.putExtra("number",number);
             startActivityForResult(intent, 1);
-            Toast.makeText(getApplicationContext(), name, Toast.LENGTH_LONG).show();
             cursor.close();
         }
         super.onActivityResult(requestCode, resultCode, data);
