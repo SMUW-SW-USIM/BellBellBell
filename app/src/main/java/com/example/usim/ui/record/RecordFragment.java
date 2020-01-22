@@ -6,11 +6,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.usim.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RecordFragment extends Fragment {
@@ -35,6 +41,22 @@ public class RecordFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        ListView listview = (ListView)view.findViewById(R.id.listRecording);
+        List<String> list = new ArrayList<>();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list);
+
+        listview.setAdapter(adapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView,
+                                    View view, int position, long id) {
+                String selected_item = (String)adapterView.getItemAtPosition(position);
+            }
+        });
+        list.add("두번째 녹음");
 
         return view;
     }
