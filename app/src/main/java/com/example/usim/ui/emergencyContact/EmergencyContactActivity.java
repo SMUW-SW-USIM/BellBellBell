@@ -25,8 +25,10 @@ public class EmergencyContactActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setData(ContactsContract.CommonDataKinds.Phone.CONTENT_URI);
                 startActivityForResult(intent, 0);
-
             }
         });
+
+        @Override
+        protected void onActivityResult(int requestCode)
     }
 }
