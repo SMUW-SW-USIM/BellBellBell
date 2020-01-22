@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
 <!--    <Button-->
 <!--        android:id="@+id/back"-->
@@ -59,10 +60,11 @@
         android:textSize="20dp"/>
     <Button
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_toRightOf="@id/editId"
         android:layout_below="@id/editUserName"
         android:layout_marginTop="30dp"
+        android:background="@color/colorSecondary"
         android:text="중복확인"
         android:fontFamily="@font/minguk"/>
     <EditText
@@ -92,6 +94,7 @@
         android:layout_height="100dp"
         android:layout_below="@+id/editSerial"
         android:layout_marginTop="120dp"
+        android:background="@color/colorSecondaryDark"
         android:text="회원가입"
         android:fontFamily="@font/minguk"
         android:textSize="20dp"

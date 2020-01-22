@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
 <!--    <Button-->
 <!--        android:id="@+id/back"-->
@@ -44,19 +45,22 @@
     <Button
         android:id="@+id/recordButton"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/recordImg"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:background="@color/colorSecondaryDark"
         android:text="녹음 시작"
         android:fontFamily="@font/minguk"
         android:textSize="25dp"/>
     <Button
         android:id="@+id/recordSaveButton"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/recordButton"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
+        android:background="@color/colorSecondaryDark"
         android:text="저장"
         android:fontFamily="@font/minguk"
         android:textSize="25dp"/>
