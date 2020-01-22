@@ -43,7 +43,7 @@
         android:layout_centerHorizontal="true"/>
 
     <Button
-        android:id="@+id/recordButton"
+        android:id="@+id/recordBtn"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_below="@id/recordImg"
@@ -54,10 +54,10 @@
         android:fontFamily="@font/minguk"
         android:textSize="25dp"/>
     <Button
-        android:id="@+id/recordSaveButton"
+        android:id="@+id/recordSaveBtn"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@id/recordButton"
+        android:layout_below="@id/recordBtn"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:background="@color/colorSecondaryDark"

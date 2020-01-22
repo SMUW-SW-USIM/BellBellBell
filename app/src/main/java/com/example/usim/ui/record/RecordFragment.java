@@ -58,7 +58,42 @@ public class RecordFragment extends Fragment {
         });
         list.add("두번째 녹음");
 
+//// 녹음 재생
+//        mBtPlay = (Button) findViewById(R.id.recordSaveBtn);
+//        mBtPlay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (isPlaying == false) {
+//                    try {
+//                        mPlayer.setDataSource(mPath);
+//                        mPlayer.prepare();
+//                    }catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                    mPlayer.start();
+//
+//                    isPlaying = true;
+//                    mBtPlay.setText("Stop Playing");
+//                }
+//                else {
+//                    mPlayer.stop();
+//
+//                    isPlaying = false;
+//                    mBtPlay.setText("Start Playing");
+//                }
+//            }
+//        });
+//
+//        mPlayer = new MediaPlayer();
+//        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//            @Override
+//            public void onCompletion(MediaPlayer mp) {
+//                isPlaying = false;
+//                mBtPlay.setText("Start Playing");
+//            }
+//        });
         return view;
     }
 
 }
+
