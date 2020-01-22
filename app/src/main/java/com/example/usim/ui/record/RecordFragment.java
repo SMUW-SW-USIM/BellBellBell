@@ -1,35 +1,42 @@
 package com.example.usim.ui.record;
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.usim.R;
-import com.example.usim.ui.share.ShareViewModel;
+
 
 public class RecordFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.activity_recording, container, false);
-//        final TextView textView = root.findViewById(R.id.record_view);
-//        shareViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
-        return root;
+    public RecordFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_recording, container, false);
+
+        Button addbtn = (Button)view.findViewById(R.id.addbtn);
+
+        addbtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), RecordAddActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        return view;
     }
 
 }
-
