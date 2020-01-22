@@ -27,6 +27,7 @@
         android:fontFamily="@font/minguk"
         android:textSize="25dp"/>
     <Button
+        android:id="@+id/loginbtn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -35,10 +36,11 @@
         android:fontFamily="@font/minguk"
         android:textSize="20dp" />
     <Button
+        android:id="@+id/signupbtn"
         android:layout_width="100dp"
         android:layout_height="35dp"
         android:layout_gravity="center"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:background="#ffffff"
         android:text="회원가입"
         android:fontFamily="@font/minguk"

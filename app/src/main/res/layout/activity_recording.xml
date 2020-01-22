@@ -27,6 +27,7 @@
             android:textSize="25dp" />
 
         <Button
+            android:id="@+id/addbtn"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="170dp"
