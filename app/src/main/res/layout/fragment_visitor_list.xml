@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.VisitorListFragment">
+    tools:context=".ui.home.VisitorListFragment"
+    android:background="@color/colorPrimary">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/listVisitor"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="방문자리스트" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>
