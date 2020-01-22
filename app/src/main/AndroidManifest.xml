@@ -22,6 +22,9 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupActivity" />
+        <activity android:name=".ui.emergencyContact.EmergencyContactPopupActivity"
+            android:theme="@style/popupTheme" android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
