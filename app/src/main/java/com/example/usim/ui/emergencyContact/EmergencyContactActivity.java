@@ -6,12 +6,8 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
-<<<<<<< HEAD
 import android.widget.Toast;
-=======
-
 import androidx.appcompat.app.AppCompatActivity;
->>>>>>> e6bf203970924f14afc9d03307aa06a2e6720509
 
 import com.example.usim.R;
 
@@ -34,7 +30,7 @@ public class EmergencyContactActivity extends AppCompatActivity {
         });
     }
 
-<<<<<<< HEAD
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode == RESULT_OK)
@@ -45,12 +41,12 @@ public class EmergencyContactActivity extends AppCompatActivity {
             cursor.moveToFirst();
             name = cursor.getString(0);
             number = cursor.getString(1);
+            Intent intent = new Intent(EmergencyContactActivity.this, EmergencyContactPopupActivity.class);
+            startActivityForResult(intent, 1);
             Toast.makeText(getApplicationContext(), name, Toast.LENGTH_LONG).show();
             cursor.close();
         }
         super.onActivityResult(requestCode, resultCode, data);
-=======
 
->>>>>>> e6bf203970924f14afc9d03307aa06a2e6720509
     }
 }
