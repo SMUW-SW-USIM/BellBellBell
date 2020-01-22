@@ -18,7 +18,7 @@ public class EmergencyContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency_contact);
 
-        Button addContactBtn = (Button)findViewById(R.id.AddContactBtn);
+        Button addContactBtn = (Button)findViewById(R.id.addContactBtn);
         addContactBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -29,20 +29,4 @@ public class EmergencyContactActivity extends AppCompatActivity {
             }
         });
     }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode == RESULT_OK)
-        {
-            Cursor cursor = getContentResolver().query(data.getData(),
-                    new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
-                            ContactsContract.CommonDataKinds.Phone.NUMBER}, null, null, null);
-            cursor.moveToFirst();
-            mName.setText(cursor.getString(0));        //이름 얻어오기
-            mNumber.setText(cursor.getString(1));     //번호 얻어오기
-            cursor.close();
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-
 }
