@@ -1,20 +1,18 @@
-package com.example.usim.ui.share;
+package com.example.usim.ui.record;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.usim.R;
+import com.example.usim.ui.share.ShareViewModel;
 
-public class ShareFragment extends Fragment {
+public class RecordFragment extends Fragment {
 
     private ShareViewModel shareViewModel;
 
@@ -23,13 +21,15 @@ public class ShareFragment extends Fragment {
         shareViewModel =
                 ViewModelProviders.of(this).get(ShareViewModel.class);
         View root = inflater.inflate(R.layout.activity_recording, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+//        final TextView textView = root.findViewById(R.id.record_view);
+//        shareViewModel.getText().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
+
 }
+
