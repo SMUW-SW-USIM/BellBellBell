@@ -29,6 +29,7 @@
         android:background="#ffffff"
         android:hint=" password"
         android:fontFamily="@font/minguk"
+        android:inputType="textPassword"
         android:textSize="25dp"/>
     <Button
         android:id="@+id/loginbtn"
