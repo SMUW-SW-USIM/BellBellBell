@@ -7,7 +7,7 @@
         android:id="@+id/visitorImg"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/mainimg"
+        android:src="@drawable/childwoman"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"/>
 
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"
                 android:paddingLeft="5dp"
-                android:text="(23세)"
+                android:text="(8세)"
                 android:fontFamily="@font/minguk"/>
         </LinearLayout>
         <TextView

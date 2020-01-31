@@ -45,10 +45,10 @@ public class VisitorListFragment extends Fragment {
         VisitorAdapter mMyAdapter = new VisitorAdapter();
 
         for (int i=0; i<10; i++) {
-            mMyAdapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mainimg),
+            mMyAdapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.childwoman),
                     "심다은",
                     "여성",
-                    23,
+                    8,
                     "방문횟수 " + i +" 회");
         }
 

@@ -60,11 +60,13 @@ public class InitialActivity extends AppCompatActivity {
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
                 SigninResponse result = response.body();
                 //Toast.makeText(InitialActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(InitialActivity.this, result.getStatus()+" ", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(InitialActivity.this, result.getStatus()+" ", Toast.LENGTH_SHORT).show();
                 if(result.getStatus()==200){
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivityForResult(intent,code);
                 }
+                else
+                    Toast.makeText(InitialActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
             }
 
             @Override
