@@ -8,4 +8,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="홈임당" />
+    <Button
+        android:id="@+id/btnRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minguk"
+        android:background="@color/colorSecondaryDark"
+        android:textSize="15dp"
+        android:text="녹음" />
+
+    <Button
+        android:id="@+id/btnEmergemcy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minguk"
+        android:background="@color/colorSecondaryDark"
+        android:textSize="15dp"
+        android:text="긴급연락처" />
 </LinearLayout>
