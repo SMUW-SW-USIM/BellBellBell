@@ -29,6 +29,12 @@ public class EmergencyContactPopupActivity extends AppCompatActivity {
     }
 
     public void onClickOK(View v){
+        Intent intent = new Intent();
+        String n1 = editTextName.getText().toString();
+        String n2 = editTextNum.getText().toString();
+        intent.putExtra("name",n1);
+        intent.putExtra("number",n2);
+        setResult(RESULT_OK, intent);
         finish();
     }
     public void onClickCancle(View v){

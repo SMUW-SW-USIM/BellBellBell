@@ -5,6 +5,7 @@
     android:background="@color/colorPrimary">
 
     <TextView
+        android:id = "@+id/textviewview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -41,10 +42,11 @@
         ></RelativeLayout>
 
     <ListView
-        android:id="@+id/listRecording"
+        android:id="@+id/listAddress"
         android:layout_width="350dp"
         android:layout_height="450dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimaryLight"/>
 
 </LinearLayout>
