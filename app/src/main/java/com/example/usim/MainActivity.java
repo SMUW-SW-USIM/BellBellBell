@@ -17,7 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.usim.ui.home.HomeFragment;
 import com.example.usim.ui.home.RealTimeFragment;
-import com.example.usim.ui.home.VisitorListFragment;
+import com.example.usim.visitor.VisitorListFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;

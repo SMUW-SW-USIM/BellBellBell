@@ -1,4 +1,4 @@
-package com.example.usim.ui.home;
+package com.example.usim.visitor;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -57,16 +57,17 @@ public class VisitorAdapter extends BaseAdapter {
         /* 각 위젯에 세팅된 아이템을 뿌려준다 */
         iv_img.setImageDrawable(myItem.getIcon());
         tv_name.setText(myItem.getName());
-        tv_gender.setText(myItem.getGender());
+        if(myItem.getGender() == 0) tv_gender.setText("여성");
+        else tv_gender.setText("남성");
         tv_age.setText("("+myItem.getAge()+"세)");
-        tv_times.setText(myItem.getTimes());
+        tv_times.setText("방문횟수: "+ myItem.getTimes()+"회");
 
         /* (위젯에 대한 이벤트리스너를 지정하고 싶다면 여기에 작성하면된다..)  */
         return convertView;
     }
 
     /* 아이템 데이터 추가를 위한 함수. 자신이 원하는대로 작성 */
-    public void addItem(Drawable img, String name, String gender,Integer age, String times) {
+    public void addItem(Drawable img, String name, Integer gender,Integer age, Integer times) {
 
         VisitorItem mItem = new VisitorItem();
 

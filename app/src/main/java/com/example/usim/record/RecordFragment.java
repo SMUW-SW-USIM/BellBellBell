@@ -1,4 +1,4 @@
-package com.example.usim.ui.record;
+package com.example.usim.record;
 
 
 import android.content.Intent;

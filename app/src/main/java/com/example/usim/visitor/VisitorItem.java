@@ -1,4 +1,4 @@
-package com.example.usim.ui.home;
+package com.example.usim.visitor;
 
 import android.graphics.drawable.Drawable;
 
@@ -6,9 +6,9 @@ public class VisitorItem {
 
     private Drawable icon;
     private String name;
-    private String gender;
+    private Integer gender;
     private Integer age;
-    private String times;
+    private Integer times;
 
     public Drawable getIcon() {
         return icon;
@@ -26,11 +26,11 @@ public class VisitorItem {
         this.name = name;
     }
 
-    public String getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
@@ -42,11 +42,11 @@ public class VisitorItem {
         this.age = age;
     }
 
-    public String getTimes() {
+    public Integer getTimes() {
         return times;
     }
 
-    public void setTimes(String times) {
+    public void setTimes(Integer times) {
         this.times = times;
     }
 

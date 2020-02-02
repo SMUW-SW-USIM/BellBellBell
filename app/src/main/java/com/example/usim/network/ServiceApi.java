@@ -18,12 +18,12 @@ import com.example.usim.data.VisitorCurrentData;
 import com.example.usim.data.VisitorCurrentResponse;
 import com.example.usim.data.VisitorListAppendData;
 import com.example.usim.data.VisitorListAppendResponse;
-import com.example.usim.data.VisitorListData;
 import com.example.usim.data.VisitorListResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ServiceApi {
@@ -41,11 +41,11 @@ public interface ServiceApi {
 
     // 방문자 리스트
     @GET("/visitors/list")
-    Call<VisitorListResponse> VisitorList(@Body VisitorListData data);
+    Call<VisitorListResponse> visitorList(@Header("token") String token);
 
     // 실시간 방문자 정보
     @GET("/visitors/current")
-    Call<VisitorCurrentResponse> VisitorCurrent(@Body VisitorCurrentData data);
+    Call<VisitorCurrentResponse> visitorCurrent(@Body VisitorCurrentData data);
 
     // 지인 버튼 누르면 방문자 리스트 추가
     @POST("/visitors/list")
@@ -53,13 +53,13 @@ public interface ServiceApi {
 
     // 녹음 리스트
     @GET("/records/list")
-    Call<RecordListResponse> RecordList(@Body RecordListData data);
+    Call<RecordListResponse> recordList(@Body RecordListData data);
     @POST("/records/list")
     Call<RecordListAppendResponse> postRecordList(@Body RecordListAppendData data);
 
     // 긴급전화 리스트
     @GET("/contacts/list")
-    Call<ContactListResponse> ContactList(@Body ContactListData data);
+    Call<ContactListResponse> contactList(@Body ContactListData data);
     @POST("/contacts/list")
     Call<ContactListAppendResponse> postContactList(@Body ContactListAppendData data);
 
