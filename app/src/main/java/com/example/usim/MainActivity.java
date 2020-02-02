@@ -26,6 +26,8 @@ import com.google.android.material.tabs.TabLayout;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    TabLayout mTab;
+    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +48,33 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         TestPagerAdapter mTestPagerAdapter = new TestPagerAdapter(getSupportFragmentManager());
-        ViewPager mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        TabLayout mTab = (TabLayout) findViewById(R.id.tabs);
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setAdapter(mTestPagerAdapter);
+        mTab = (TabLayout) findViewById(R.id.tabs);
         mTab.setupWithViewPager(mViewPager);
+        mTab.getTabAt(0).setIcon(R.drawable.homeicon2);
+        mTab.getTabAt(1).setIcon(R.drawable.bellicon);
+        mTab.getTabAt(2).setIcon(R.drawable.visitoricon);
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
 
+            @Override
+            public void onPageSelected(int position) {
+                mTab.getTabAt(0).setIcon(R.drawable.homeicon);
+                mTab.getTabAt(1).setIcon(R.drawable.bellicon);
+                mTab.getTabAt(2).setIcon(R.drawable.visitoricon);
+                switch (position){
+                    case 0 : mTab.getTabAt(0).setIcon(R.drawable.homeicon2); break;
+                    case 1 : mTab.getTabAt(1).setIcon(R.drawable.bellicon2); break;
+                    case 2 : mTab.getTabAt(2).setIcon(R.drawable.visitoricon); break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) { }
+        });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -89,17 +111,6 @@ public class MainActivity extends AppCompatActivity {
         public int getCount(){
             return PAGE_NUMBER;
         }
-        public CharSequence getPageTitle(int position){
-            switch(position){
-                case 0:
-                    return "HOME";
-                case 1:
-                    return "실시간";
-                case 2:
-                    return "방문자";
-                default:
-                    return null;
-            }
-        }
     }
+
 }
