@@ -15,6 +15,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.usim.ui.home.HomeFragment;
 import com.example.usim.ui.home.RealTimeFragment;
 import com.example.usim.ui.home.VisitorListFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -50,14 +51,6 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mTestPagerAdapter);
         mTab.setupWithViewPager(mViewPager);
 
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
     @Override
@@ -83,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position){
             switch(position){
                 case 0:
-                    return RealTimeFragment.newInstance();
+                    return HomeFragment.newInstance();
                 case 1:
                     return RealTimeFragment.newInstance();
                 case 2:
