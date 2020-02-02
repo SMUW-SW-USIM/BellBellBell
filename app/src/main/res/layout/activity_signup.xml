@@ -45,36 +45,51 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:layout_marginLeft="30dp"
+        android:background="@drawable/border"
+        android:padding="15dp"
         android:hint="이름"
         android:fontFamily="@font/minguk"
         android:textSize="20dp"/>
-    <EditText
-        android:id="@+id/editId"
-        android:layout_width="250dp"
+    <RelativeLayout
+        android:id="@+id/Relative"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editUserName"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:hint="아이디"
-        android:fontFamily="@font/minguk"
-        android:textSize="20dp"/>
-    <Button
-        android:id="@+id/IdCheckbtn"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_toRightOf="@id/editId"
-        android:layout_below="@id/editUserName"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorSecondary"
-        android:text="중복확인"
-        android:fontFamily="@font/minguk"/>
+        android:layout_below="@id/editUserName">
+        <EditText
+            android:id="@+id/editId"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/border"
+            android:padding="15dp"
+            android:hint="아이디"
+            android:fontFamily="@font/minguk"
+            android:textSize="20dp">
+        </EditText>
+
+        <Button
+            android:id="@+id/IdCheckbtn"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="43dp"
+            android:background="@color/colorPrimaryDark"
+            android:fontFamily="@font/minguk"
+            android:text="중복확인" />
+    </RelativeLayout>
+
+
     <EditText
         android:id="@+id/editPw"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editId"
+        android:layout_below="@id/Relative"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
+        android:background="@drawable/border"
+        android:padding="15dp"
         android:hint="비밀번호"
         android:fontFamily="@font/minguk"
         android:inputType="textPassword"
@@ -86,13 +101,16 @@
         android:layout_below="@id/editPw"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
+        android:background="@drawable/border"
+        android:padding="15dp"
         android:hint="일련번호"
         android:fontFamily="@font/minguk"
         android:textSize="20dp"/>
+
     <Button
         android:id="@+id/realSignUpbtn"
         android:layout_width="400dp"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_below="@+id/editSerial"
         android:layout_marginTop="120dp"
         android:background="@color/colorSecondaryDark"
