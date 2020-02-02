@@ -41,8 +41,9 @@ public class InitialActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String u_id = loginId.getText().toString();
                 String u_pw = loginPw.getText().toString();
-
-                startSignin(new SigninData(u_id, u_pw));
+                if(u_id.isEmpty()) Toast.makeText(InitialActivity.this, "아이디를 입력해주세요", Toast.LENGTH_SHORT).show();
+                else if(u_pw.isEmpty()) Toast.makeText(InitialActivity.this, "비밀번호를 입력해주세요", Toast.LENGTH_SHORT).show();
+                else startSignin(new SigninData(u_id, u_pw));
             }
         });
         signupbtn.setOnClickListener(new View.OnClickListener(){
@@ -59,20 +60,25 @@ public class InitialActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
                 SigninResponse result = response.body();
-                //Toast.makeText(InitialActivity.this, result.getMessage(), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(InitialActivity.this, result.getStatus()+" ", Toast.LENGTH_SHORT).show();
-                if(result.getStatus()==200){
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivityForResult(intent,code);
+                if(result == null) Toast.makeText(InitialActivity.this, "아이디 또는 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show();
+                else {
+                    Integer status = result.getStatus();
+                    String message = result.getMessage();
+
+                    if (!message.isEmpty())
+                        Toast.makeText(InitialActivity.this, message, Toast.LENGTH_SHORT).show();
+                    if (status == 200) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivityForResult(intent, code);
+                    } else
+                        Toast.makeText(InitialActivity.this, "아이디 또는 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show();
                 }
-                else
-                    Toast.makeText(InitialActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<SigninResponse> call, Throwable t) {
-                Toast.makeText(InitialActivity.this, "로그인 에러 발생", Toast.LENGTH_SHORT).show();
-                Log.e("로그인 에러 발생", t.getMessage());
+                Toast.makeText(InitialActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                Log.e("로그인 실패", t.getMessage());
             }
         });
     }
