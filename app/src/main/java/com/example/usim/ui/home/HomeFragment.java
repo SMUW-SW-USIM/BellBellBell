@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.usim.R;
 import com.example.usim.ui.emergencyContact.EmergencyContactActivity;
+import com.example.usim.ui.record.RecordActivity;
 import com.example.usim.ui.record.RecordAddActivity;
 
 public class HomeFragment extends Fragment {
@@ -43,7 +44,7 @@ public class HomeFragment extends Fragment {
         btnRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), RecordAddActivity.class);
+                Intent intent = new Intent(getContext(), RecordActivity.class);
                 startActivity(intent);
             }
         });
