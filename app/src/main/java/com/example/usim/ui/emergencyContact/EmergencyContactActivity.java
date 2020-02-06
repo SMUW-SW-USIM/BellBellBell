@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.usim.R;
+import com.example.usim.data.ContactListAppendData;
+import com.example.usim.data.ContactListAppendResponse;
 import com.example.usim.data.ContactListResponse;
 import com.example.usim.network.RetrofitClient;
 import com.example.usim.network.ServiceApi;
@@ -86,8 +88,9 @@ public class EmergencyContactActivity extends AppCompatActivity {
                 name = data.getExtras().getString("name");
                 number = data.getExtras().getString("number");
                 textviewview.setText(name);
-                mAddressAdapter.addItem(name,number);
-                listview.setAdapter(mAddressAdapter);
+                startContactListAppend(new ContactListAppendData(name, number));
+                //mAddressAdapter.addItem(name,number);
+                //listview.setAdapter(mAddressAdapter);
             }
         }
     }
@@ -127,5 +130,32 @@ public class EmergencyContactActivity extends AppCompatActivity {
         });
     }
 
+    private void startContactListAppend(ContactListAppendData data) {
+        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1X2lkeCI6IjEifQ.87fKkaZ2cChPhtljZuXy9NcIBfZ_utzibQGj0ffbIQU";
+
+        service.postContactList(token, data).enqueue(new Callback<ContactListAppendResponse>() {
+            @Override
+            public void onResponse(Call<ContactListAppendResponse> call, Response<ContactListAppendResponse> response) {
+                ContactListAppendResponse result = response.body();
+                if(result == null) Toast.makeText(getApplicationContext(), "긴급 연락처 정보 등록하기 실패", Toast.LENGTH_SHORT).show();
+                else {
+                    Integer status = result.getStatus();
+                    String message = result.getMessage();
+                    if (!message.isEmpty())
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                    if (status == 201) {
+                        dataSetting();
+                    } else
+                        Toast.makeText(getApplicationContext(), "긴급 연락처 정보 등록하기 실패", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ContactListAppendResponse> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "긴급 연락처 정보 등록하기 실패", Toast.LENGTH_SHORT).show();
+                Log.e("긴급 연락처 정보 등록하기 실패", t.getMessage());
+            }
+        });
+    }
     
 }

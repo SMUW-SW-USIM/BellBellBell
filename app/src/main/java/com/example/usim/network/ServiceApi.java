@@ -1,5 +1,7 @@
 package com.example.usim.network;
 
+import com.example.usim.data.ContactListAppendData;
+import com.example.usim.data.ContactListAppendResponse;
 import com.example.usim.data.ContactListResponse;
 import com.example.usim.data.IdCheckData;
 import com.example.usim.data.IdCheckResponse;
@@ -52,13 +54,17 @@ public interface ServiceApi {
     Call<RecordListResponse> recordList(@Header("token") String token);
 
 //    @POST("/records/list")
-//    Call<RecordListAppendResponse> postRecordList(@Body RecordListAppendData data);
+//    Call<RecordListAppendResponse> postRecordList(
+//    @Header("token") String token,
+//    @Body RecordListAppendData data);
 
     // 긴급전화 리스트
     @GET("/contacts/list")
     Call<ContactListResponse> contactList(@Header("token") String token);
 
-//    @POST("/contacts/list")
-//    Call<ContactListAppendResponse> postContactList(@Body ContactListAppendData data);
+    @POST("/contacts/list")
+    Call<ContactListAppendResponse> postContactList(
+            @Header("token") String token,
+            @Body ContactListAppendData data);
 
 }
