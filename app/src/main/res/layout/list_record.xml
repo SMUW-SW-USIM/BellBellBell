@@ -4,8 +4,8 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -17,19 +17,20 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/minguk"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:text="첫번째 녹음"
             android:textSize="20dp" />
 
         <Button
             android:id="@+id/visitorGenderAge"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="170dp"
             android:text="▶"
             android:textSize="20dp"
-            android:fontFamily="@font/minguk"/>
+            android:fontFamily="@font/minguk"
+            android:background="@color/colorPrimaryDark"/>
 
     </LinearLayout>
 

@@ -71,7 +71,6 @@ public class VisitorListFragment extends Fragment {
                     if (!message.isEmpty())
                         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                     if (status == 200) {
-                        Toast.makeText(getContext(), "방문자 정보 가져오기 성공", Toast.LENGTH_SHORT).show();
                         for (int i=0; i< visitorInfo.size(); i++) {
                             mMyAdapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.childwoman),
                                     visitorInfo.get(i).v_name,

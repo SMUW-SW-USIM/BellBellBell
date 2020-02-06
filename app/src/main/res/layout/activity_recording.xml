@@ -32,12 +32,10 @@
 
         <Button
             android:id="@+id/addbtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="330dp"
-            android:background="@color/colorSecondaryDark"
-            android:text="+"
-            android:textSize="25dp" />
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="340dp"
+            android:background="@drawable/plusbtn" />
         ></RelativeLayout>
 
     <ListView

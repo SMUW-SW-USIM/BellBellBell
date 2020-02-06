@@ -43,6 +43,7 @@ public interface ServiceApi {
     // 녹음 리스트
     @GET("/records/list")
     Call<RecordListResponse> recordList(@Header("token") String token);
+
 //    @POST("/records/list")
 //    Call<RecordListAppendResponse> postRecordList(@Body RecordListAppendData data);
 

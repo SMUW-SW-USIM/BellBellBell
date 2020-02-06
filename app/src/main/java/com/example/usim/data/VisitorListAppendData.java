@@ -15,12 +15,16 @@ public class VisitorListAppendData {
     @SerializedName("v_times")
     private Integer v_times;
 
+    @SerializedName("v_faceId")
+    private String v_faceId;
 
-    public VisitorListAppendData(String v_name, Integer v_gender, Integer v_age, Integer v_times) {
+
+    public VisitorListAppendData(String v_name, Integer v_gender, Integer v_age, Integer v_times, String v_faceId) {
         this.v_name = v_name;
         this.v_gender = v_gender;
         this.v_age = v_age;
         this.v_times = v_times;
+        this.v_faceId = v_faceId;
     }
 
 }
