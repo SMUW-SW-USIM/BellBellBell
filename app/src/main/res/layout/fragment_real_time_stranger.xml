@@ -131,7 +131,16 @@
                         android:fontFamily="@font/minguk"
                         android:text="신고하기" />
                 </LinearLayout>
+                <Button
+                    android:id="@+id/testbutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorSecondaryDark"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/minguk"
+                    android:text="테스트버튼(누르면 실시간 방문자 정보 알림)" />
             </LinearLayout>
+
 
         </LinearLayout>
 

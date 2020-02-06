@@ -9,8 +9,6 @@ public class SigninResponse {
     @SerializedName("message")
     private String message;
 
-    @SerializedName("u_id")
-    private int u_id;
 
     public int getStatus() {
         return status;
@@ -20,8 +18,5 @@ public class SigninResponse {
         return message;
     }
 
-    public int getUserId() {
-        return u_id;
-    }
 
 }
