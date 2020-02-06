@@ -57,6 +57,7 @@ public interface ServiceApi {
     // 긴급전화 리스트
     @GET("/contacts/list")
     Call<ContactListResponse> contactList(@Header("token") String token);
+
 //    @POST("/contacts/list")
 //    Call<ContactListAppendResponse> postContactList(@Body ContactListAppendData data);
 
