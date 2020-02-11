@@ -6,11 +6,11 @@ public class RecordListAppendData {
     @SerializedName("r_name")
     private String r_name;
 
-    @SerializedName("r_info")
-    private String r_info;
+    @SerializedName("records")
+    private String records;
 
-    public RecordListAppendData(String r_name, String r_info) {
+    public RecordListAppendData(String r_name, String records) {
         this.r_name = r_name;
-        this.r_info = r_info;
+        this.records = records;
     }
 }

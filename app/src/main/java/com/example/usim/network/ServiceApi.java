@@ -5,12 +5,16 @@ import com.example.usim.data.ContactListAppendResponse;
 import com.example.usim.data.ContactListResponse;
 import com.example.usim.data.IdCheckData;
 import com.example.usim.data.IdCheckResponse;
+import com.example.usim.data.RecordListAppendData;
+import com.example.usim.data.RecordListAppendResponse;
 import com.example.usim.data.RecordListResponse;
 import com.example.usim.data.SigninData;
 import com.example.usim.data.SigninResponse;
 import com.example.usim.data.SignupData;
 import com.example.usim.data.SignupResponse;
 import com.example.usim.data.VisitorCurrentResponse;
+import com.example.usim.data.VisitorListAppendData;
+import com.example.usim.data.VisitorListAppendResponse;
 import com.example.usim.data.VisitorListResponse;
 
 import retrofit2.Call;
@@ -44,19 +48,21 @@ public interface ServiceApi {
             @Query("v_faceId") String v_faceId
             //@Body VisitorCurrentData data
     );
-//
-//    // 지인 버튼 누르면 방문자 리스트 추가
-//    @POST("/visitors/list")
-//    Call<VisitorListAppendResponse> postVisitorList(@Body VisitorListAppendData data);
+
+    // 지인 버튼 누르면 방문자 리스트 추가
+    @POST("/visitors/list")
+    Call<VisitorListAppendResponse> postVisitorList(
+            @Header("token") String token,
+            @Body VisitorListAppendData data);
 
     // 녹음 리스트
     @GET("/records/list")
     Call<RecordListResponse> recordList(@Header("token") String token);
 
-//    @POST("/records/list")
-//    Call<RecordListAppendResponse> postRecordList(
-//    @Header("token") String token,
-//    @Body RecordListAppendData data);
+    @POST("/records/list")
+    Call<RecordListAppendResponse> postRecordList(
+            @Header("token") String token,
+            @Body RecordListAppendData data);
 
     // 긴급전화 리스트
     @GET("/contacts/list")

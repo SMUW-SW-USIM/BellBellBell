@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.usim.R;
 import com.example.usim.data.VisitorCurrentResponse;
+import com.example.usim.data.VisitorListAppendData;
+import com.example.usim.data.VisitorListAppendResponse;
 import com.example.usim.network.RetrofitClient;
 import com.example.usim.network.ServiceApi;
 
@@ -45,6 +47,15 @@ public class RealTimeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_real_time_stranger, container, false);
+        Button buttonPushList = (Button)view.findViewById(R.id.buttonPushList);
+        buttonPushList.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startVisitorListAppend(new VisitorListAppendData("박동철",0,38,0,"2"));
+                // String v_name, Integer v_gender, Integer v_age, Integer v_times, String v_faceId
+            }
+        });
+
         //가 데이터 - 수정해야됨
         Button testbtn = (Button) view.findViewById(R.id.testbutton);
         testbtn.setOnClickListener(new View.OnClickListener(){
@@ -86,6 +97,34 @@ public class RealTimeFragment extends Fragment {
             public void onFailure(Call<VisitorCurrentResponse> call, Throwable t) {
                 Toast.makeText(getContext(), "실시간 방문자 정보 가져오기 실패", Toast.LENGTH_SHORT).show();
                 Log.e("실시간 방문자 정보 가져오기 실패", t.getMessage());
+            }
+        });
+    }
+
+    private void startVisitorListAppend(VisitorListAppendData data) {
+        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1X2lkeCI6IjEifQ.87fKkaZ2cChPhtljZuXy9NcIBfZ_utzibQGj0ffbIQU";
+        service.postVisitorList(token, data).enqueue(new Callback<VisitorListAppendResponse>() {
+            @Override
+            public void onResponse(Call<VisitorListAppendResponse> call, Response<VisitorListAppendResponse> response) {
+                VisitorListAppendResponse result = response.body();
+                if(result == null) Toast.makeText(getContext(), "방문자 정보 등록하기 실패", Toast.LENGTH_SHORT).show();
+                else {
+                    Integer status = result.getStatus();
+                    String message = result.getMessage();
+
+                    if (!message.isEmpty())
+                        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                    if (status == 201) {
+                        Toast.makeText(getContext(), "방문자 정보 등록하기 성공", Toast.LENGTH_LONG).show();
+                    } else
+                        Toast.makeText(getContext(), "방문자 정보 등록하기 실패", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<VisitorListAppendResponse> call, Throwable t) {
+                Toast.makeText(getContext(), "방문자 정보 등록하기 실패", Toast.LENGTH_SHORT).show();
+                Log.e("방문자 정보 등록하기 실패", t.getMessage());
             }
         });
     }

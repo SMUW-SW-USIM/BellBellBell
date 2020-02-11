@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/minguk"
             android:layout_gravity="center"
+            android:layout_weight="15"
             android:layout_marginLeft="10dp"
             android:text="첫번째 녹음"
             android:textSize="20dp" />
@@ -26,7 +27,8 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="170dp"
+            android:layout_weight="1"
+            android:layout_marginRight="30dp"
             android:text="▶"
             android:textSize="20dp"
             android:fontFamily="@font/minguk"
