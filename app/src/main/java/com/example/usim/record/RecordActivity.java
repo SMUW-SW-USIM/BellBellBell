@@ -26,13 +26,6 @@ public class RecordActivity extends AppCompatActivity {
     private ListView mListView;
     RecordAdapter mMyAdapter;
 
-//    public static RecordActivity newInstance(){
-//        Bundle args = new Bundle();
-//
-//        RecordActivity activity = new RecordActivity();
-//        activity.setArguments(args);
-//        return activity;
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

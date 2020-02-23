@@ -32,10 +32,12 @@ public class RecordAddActivity extends AppCompatActivity {
     private ServiceApi service = RetrofitClient.getClient().create(ServiceApi.class);
     String r_name,r_info;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recording_add);
         mRecorder = new MediaRecorder();
+
 
         // 녹음 시작, 중지
         mBtRecord = (Button) findViewById(R.id.recordBtn);
@@ -72,9 +74,10 @@ public class RecordAddActivity extends AppCompatActivity {
         mRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
         mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
 
-        //저장 위치 지정 ~~~
+//        mPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/record.aac";
+//        Log.d(TAG, "file path is " + mPath);
+//        mRecorder.setOutputFile(mPath);
 
-        //mRecorder.setOutputFile(mPath);
         try {
             mRecorder.prepare();
         } catch (Exception e) {
@@ -109,4 +112,5 @@ public class RecordAddActivity extends AppCompatActivity {
             }
         });
     }
+
 }
