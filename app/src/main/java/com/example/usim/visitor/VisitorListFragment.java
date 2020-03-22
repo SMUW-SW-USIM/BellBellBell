@@ -72,7 +72,10 @@ public class VisitorListFragment extends Fragment {
                         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                     if (status == 200) {
                         for (int i=0; i< visitorInfo.size(); i++) {
-                            mMyAdapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.childwoman),
+                            int iconImg ;
+                            if(visitorInfo.get(i).v_gender == 0) iconImg =R.drawable.father;
+                            else iconImg = R.drawable.childman;
+                            mMyAdapter.addItem(ContextCompat.getDrawable(getActivity(), iconImg),
                                     visitorInfo.get(i).v_name,
                                     visitorInfo.get(i).v_gender,
                                     visitorInfo.get(i).v_age,

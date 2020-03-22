@@ -1,19 +1,22 @@
-package com.example.usim;
+package com.example.usim.record;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.usim.R;
+
 import java.util.Locale;
 
 public class TextToSpeachActivity extends AppCompatActivity {
     private Button btnEnter;
-    private EditText edtSpeech;
+    private EditText r_name;
 
     private TextToSpeech textToSpeech;
 
@@ -22,6 +25,17 @@ public class TextToSpeachActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_tts);
 
+        initTTS();
+        r_name = (EditText) findViewById(R.id.edt_speech);
+        btnEnter = (Button) findViewById(R.id.okBtn);
+        btnEnter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Speech(r_name.getText().toString());
+            }
+        });
+    }
+    public void initTTS(){
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -32,7 +46,7 @@ public class TextToSpeachActivity extends AppCompatActivity {
                     if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Toast.makeText(getApplicationContext(), "이 언어는 지원하지 않습니다.", Toast.LENGTH_SHORT).show();
                     } else {
-                        btnEnter.setEnabled(true);
+                        // btnEnter.setEnabled(true);
                         //음성 톤
                         textToSpeech.setPitch(0.7f);
                         //읽는 속도
@@ -41,22 +55,9 @@ public class TextToSpeachActivity extends AppCompatActivity {
                 }
             }
         });
-
-        edtSpeech = (EditText) findViewById(R.id.edt_speech);
-//        btnEnter = (Button) findViewById(R.id.btn_ent);
-//        btnEnter.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Speech();
-//            }
-//        });
     }
-
-    private void Speech() {
-        String text = edtSpeech.getText().toString();
-        // QUEUE_FLUSH: Queue 값을 초기화한 후 값을 넣는다.
-        // QUEUE_ADD: 현재 Queue에 값을 추가하는 옵션이다.
-        // API 21
+    public void Speech(String text) {
+        initTTS();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
             //if(textToSpeech.isSpeaking()) Toast.makeText(this, "말하는중이지롱", Toast.LENGTH_LONG).show();
@@ -65,16 +66,19 @@ public class TextToSpeachActivity extends AppCompatActivity {
             Toast.makeText(this, "speak!", Toast.LENGTH_LONG).show();
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
         }
+        onStop();
     }
 
     // 메모리 누출을 방지하게 위해 TTS를 중지
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         if (textToSpeech != null) {
             textToSpeech.stop();
             textToSpeech.shutdown();
         }
     }
-
+    public void test(){
+        Toast.makeText(this,"성공",Toast.LENGTH_LONG).show();
+    }
 }

@@ -33,6 +33,7 @@
         <activity android:name=".InitialActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".record.RecordAddActivity" />
+        <activity android:name=".record.TextToSpeachActivity" />
         <activity android:name=".record.RecordPopup"
             android:screenOrientation="portrait"
             android:theme="@style/popupTheme"></activity>

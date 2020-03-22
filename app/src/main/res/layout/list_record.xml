@@ -23,7 +23,7 @@
             android:textSize="20dp" />
 
         <Button
-            android:id="@+id/visitorGenderAge"
+            android:id="@+id/recordPlaying"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
