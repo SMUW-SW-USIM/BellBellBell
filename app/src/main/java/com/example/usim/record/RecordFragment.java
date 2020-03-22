@@ -7,8 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -20,7 +18,6 @@ import com.example.usim.data.RecordListResponse;
 import com.example.usim.network.RetrofitClient;
 import com.example.usim.network.ServiceApi;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -33,7 +30,7 @@ public class RecordFragment extends Fragment {
         // Required empty public constructor
     }
     private ServiceApi service = RetrofitClient.getClient().create(ServiceApi.class);
-    private ListView mListView;
+    private ListView listview;
     RecordAdapter mMyAdapter;
 
     public static RecordFragment newInstance(){
@@ -44,11 +41,12 @@ public class RecordFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_recording, container, false);
-        mListView = (ListView)view.findViewById(R.id.listRecording);
+        listview = (ListView)view.findViewById(R.id.listRecording);
         dataSetting();
 
 
@@ -63,56 +61,23 @@ public class RecordFragment extends Fragment {
         });
 
 
-        ListView listview = (ListView)view.findViewById(R.id.listRecording);
-        List<String> list = new ArrayList<>();
+        // List<String> list = new ArrayList<>();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list);
+        // ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list);
 
-        listview.setAdapter(adapter);
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            @Override
-            public void onItemClick(AdapterView<?> adapterView,
-                                    View view, int position, long id) {
-                String selected_item = (String)adapterView.getItemAtPosition(position);
-            }
-        });
-        list.add("두번째 녹음");
-
-//// 녹음 재생
-//        mBtPlay = (Button) findViewById(R.id.recordSaveBtn);
-//        mBtPlay.setOnClickListener(new View.OnClickListener() {
+//        listview.setAdapter(mMyAdapter);
+//        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
 //            @Override
-//            public void onClick(View v) {
-//                if (isPlaying == false) {
-//                    try {
-//                        mPlayer.setDataSource(mPath);
-//                        mPlayer.prepare();
-//                    }catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                    mPlayer.start();
-//
-//                    isPlaying = true;
-//                    mBtPlay.setText("Stop Playing");
-//                }
-//                else {
-//                    mPlayer.stop();
-//
-//                    isPlaying = false;
-//                    mBtPlay.setText("Start Playing");
-//                }
+//            public void onItemClick(AdapterView<?> adapterView,
+//                                    View view, int position, long id) {
+//                String selected_item = (String)adapterView.getItemAtPosition(position);
+//                // Toast.makeText(getContext(), "1", Toast.LENGTH_SHORT).show();
+//                Log.i("3버버ㅓ너버버번","여기아ㅏ아아");
 //            }
 //        });
-//
-//        mPlayer = new MediaPlayer();
-//        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-//            @Override
-//            public void onCompletion(MediaPlayer mp) {
-//                isPlaying = false;
-//                mBtPlay.setText("Start Playing");
-//            }
-//        });
+
         return view;
     }
 
@@ -142,7 +107,7 @@ public class RecordFragment extends Fragment {
                             mMyAdapter.addItem(
                                     recordInfo.get(i).r_name);
                         }
-                        mListView.setAdapter(mMyAdapter);
+                        listview.setAdapter(mMyAdapter);
                     } else
                         Toast.makeText(getContext(), "녹음 정보 가져오기 실패", Toast.LENGTH_SHORT).show();
                 }

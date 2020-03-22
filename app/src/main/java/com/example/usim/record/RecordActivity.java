@@ -38,11 +38,25 @@ public class RecordActivity extends AppCompatActivity {
         addbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RecordAddActivity.class);
-                startActivity(intent);
+
+                Intent intent = new Intent(getApplicationContext(), RecordPopup.class);
+                intent.putExtra("data", "Test Popup");
+                startActivityForResult(intent, 1);
+
             }
         });
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==1){
+            if(resultCode==RESULT_OK){
+                dataSetting();
+            }
+        }
+    }
+
     private void dataSetting(){
         mMyAdapter = new RecordAdapter();
         startRecordList();

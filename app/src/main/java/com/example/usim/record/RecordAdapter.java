@@ -5,13 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.usim.R;
 
 import java.util.ArrayList;
 
 public class RecordAdapter extends BaseAdapter {
+    private TextView r_name;
+    private Button ttsBtn;
+
 
     /* 아이템을 세트로 담기 위한 어레이 */
     private ArrayList<RecordItem> mItems = new ArrayList<>();
@@ -34,38 +39,42 @@ public class RecordAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Context context = parent.getContext();
+        final Context context = parent.getContext();
 
-        /* 'listview_custom' Layout을 inflate하여 convertView 참조 획득 */
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_record, parent, false);
         }
 
-        /* 'listview_custom'에 정의된 위젯에 대한 참조 획득 */
-        TextView tv_name = (TextView) convertView.findViewById(R.id.recordName) ;
+        r_name = (TextView) convertView.findViewById(R.id.recordName);
 
-
-        /* 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용 */
         RecordItem myItem = getItem(position);
 
-        /* 각 위젯에 세팅된 아이템을 뿌려준다 */
-        tv_name.setText(myItem.getName());
+        r_name.setText(myItem.getName());
 
-        /* (위젯에 대한 이벤트리스너를 지정하고 싶다면 여기에 작성하면된다..)  */
+
+        // play 버튼 누르면 TTS로 음성 전달
+        ttsBtn = (Button) convertView.findViewById(R.id.recordPlaying);
+        ttsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, r_name.getText().toString(), Toast.LENGTH_LONG).show();
+                //((TextToSpeachActivity) context).Speech(r_name.getText().toString());
+                //((TextToSpeachActivity) context).test();
+            }
+        });
+
         return convertView;
     }
 
-    /* 아이템 데이터 추가를 위한 함수. 자신이 원하는대로 작성 */
+
     public void addItem(String name) {
 
         RecordItem mItem = new RecordItem();
 
-        /* MyItem에 아이템을 setting한다. */
         mItem.setName(name);
-
-        /* mItems에 MyItem을 추가한다. */
         mItems.add(mItem);
     }
+
 
 }
