@@ -73,8 +73,20 @@ public class VisitorListFragment extends Fragment {
                     if (status == 200) {
                         for (int i=0; i< visitorInfo.size(); i++) {
                             int iconImg ;
-                            if(visitorInfo.get(i).v_gender == 0) iconImg =R.drawable.father;
-                            else iconImg = R.drawable.childman;
+                            if(visitorInfo.get(i).v_gender == 0) { //여자
+                                if(visitorInfo.get(i).v_age < 13) iconImg =R.drawable.childwoman;
+                                else if(visitorInfo.get(i).v_age < 20) iconImg =R.drawable.student;
+                                else if(visitorInfo.get(i).v_age < 40) iconImg =R.drawable.woman;
+                                else if(visitorInfo.get(i).v_age < 60) iconImg =R.drawable.mother;
+                                else iconImg =R.drawable.grandmother;
+                            }
+                            else{ // 남자
+                                if(visitorInfo.get(i).v_age < 13) iconImg =R.drawable.childman;
+                                else if(visitorInfo.get(i).v_age < 20) iconImg =R.drawable.student;
+                                else if(visitorInfo.get(i).v_age < 40) iconImg =R.drawable.man;
+                                else if(visitorInfo.get(i).v_age < 60) iconImg =R.drawable.father;
+                                else iconImg =R.drawable.grandfather;
+                            }
                             mMyAdapter.addItem(ContextCompat.getDrawable(getActivity(), iconImg),
                                     visitorInfo.get(i).v_name,
                                     visitorInfo.get(i).v_gender,
